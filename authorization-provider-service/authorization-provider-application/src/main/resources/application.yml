@@ -1,0 +1,19 @@
+liquibase:
+  change-log: classpath:db/changelog/liquibase-changeLog.xml
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${db.host}:${db.port}/${db.name}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: ${auth.server.port}
+  context-path: ${auth.server.context-path}
+  address: ${auth.server.host}
+#logging:
+#    level:
+#        root: DEBUG
+#        sun.rmi: INFO
+#        org.springframework.security: DEBUG

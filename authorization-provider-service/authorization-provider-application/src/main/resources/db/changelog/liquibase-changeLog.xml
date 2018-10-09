@@ -1,0 +1,61 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="js" id="07-09-2017-01">
+        <sql>
+            <comment>Creating cgusersm schema</comment>
+            CREATE SCHEMA cgusersm;
+        </sql>
+    </changeSet>
+
+
+    <changeSet author="js" id="27-09-2017-01">
+        <sql>
+            <comment>Creating users table</comment>
+            CREATE TABLE cgusersm.users
+            (
+            id BIGINT PRIMARY KEY,
+            email VARCHAR(255) UNIQUE,
+            nick_name VARCHAR(255),
+            password VARCHAR(1000)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet author="js" id="27-09-2017-02">
+        <sql>
+            <comment>Creating user_roles table</comment>
+            create table cgusersm.user_roles
+            (
+            user_id BIGINT NOT NULL REFERENCES cgusersm.users,
+            role VARCHAR(255) NOT NULL,
+            PRIMARY KEY (user_id, role)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet author="js" id="27-09-2017-03">
+        <sql>
+            <comment>Creating user_accounts table</comment>
+            create table cgusersm.user_accounts
+            (
+            auth_provider_type VARCHAR(255) NOT NULL,
+            ext_id VARCHAR(255) NOT NULL,
+            user_id BIGINT NOT NULL REFERENCES cgusersm.users,
+            nick_name VARCHAR(255),
+            PRIMARY KEY (auth_provider_type, ext_id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet author="js" id="01-10-2017-01">
+        <sql>
+            <comment>Creating user_seq sequence</comment>
+            CREATE SEQUENCE cgusersm.user_seq START 1;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

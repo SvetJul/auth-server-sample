@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>meta</artifactId>
+        <groupId>club.kuzyayo.stars</groupId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>authorization-provider-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>authorization-provider-application</module>
+        <module>authorization-provider-api</module>
+        <module>authorization-provider-client</module>
+    </modules>
+
+
+</project>

@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+club.kuzyayo.stars.common.configuration.SlugifyConfig,\
+club.kuzyayo.stars.common.configuration.WebConfig,\
+club.kuzyayo.stars.starter.config.security.JwtResourceServerConfigurerAdapter,\
+club.kuzyayo.stars.starter.config.spring.profiles.ProfileAggregationConfig
